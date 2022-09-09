@@ -6,27 +6,21 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
-			post {
-				always {
-					echo 'steps terminé'
-				}
-			}
-			
-		stage('Clone') {
-			steps {
-					checkout([$class: 'GitSCM',
-					branches: [[name: '*/main' ]],
-					extensions: scm.extensions,
-					userRemoteConfigs: [[
-                    url: 'https://github.com/abdel-77/JenkinsJava.git',
-                    credentialsId: '81975299-416b-4648-bec0-8fb90c0b5c4d'
-                ]]
-            ])
-
-            //List all directories
-            sh "ls -lart ./*"
-            }
         }
+        stage('Clone') {
+            steps {
+                checkout([$class: 'GitSCM',
+                    branches: [[name: '*/master' ]],
+                    extensions: scm.extensions,
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/abdel-77/JenkinsJava.git',
+                        credentialsId: '81975299-416b-4648-bec0-8fb90c0b5c4d'
+                        ]]
+                    ])
 
+                //List all directories
+                sh "ls -lart ./*"
+         }
+      }
     }
 }
