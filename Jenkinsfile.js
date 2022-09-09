@@ -10,7 +10,7 @@ pipeline {
         stage('Clone') {
             steps {
                 checkout([$class: 'GitSCM',
-                    branches: [[name: '*/master' ]],
+                    branches: [[name: '*/main' ]],
                     extensions: scm.extensions,
                     userRemoteConfigs: [[
                         url: 'https://github.com/abdel-77/JenkinsJava.git',
