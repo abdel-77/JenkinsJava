@@ -25,7 +25,7 @@ pipeline {
 
             //List all directories
             sh "ls -lart ./*"
-         }
+         
       }
 
     }
