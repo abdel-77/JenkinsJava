@@ -6,6 +6,11 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
+			post {
+				always {
+					echo 'steps terminé'
+				}
+			}
         }
     }
 }
